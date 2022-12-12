@@ -1,27 +1,17 @@
-import React from "react";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-import "./App.css";
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  // <React.StrictMode>
+    <App />
+  // </React.StrictMode>
+);
 
-export default function Home() {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCz8NPIe-jWLIvEEPkb75QL3_LGMrYw6rQ",
-  });
-  if (!isLoaded) return <div>loading...</div>;
-  return (
-    <div>
-      <Map />
-    </div>
-  );
-}
-function Map() {
-  return (
-    <div>
-      <GoogleMap
-        zoom={10}
-        center={{ Iat: 44, Ing: -80 }}
-        mapContainerClassName="map-container"
-      ></GoogleMap>
-    </div>
-  );
-}
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
